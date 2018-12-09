@@ -184,7 +184,7 @@ var MapService = /** @class */ (function () {
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return URLS; });
 var URLS = {
-    base: "https://api.geodir.co/geocoder",
+    base: "http://api.geodir.co/geocoder",
     distritos: '/asistido/v1/source/distrito',
     simple_Addres: '/geocoding/v1/geodir.address/simple'
 };
@@ -200,7 +200,7 @@ exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-b
 
 
 // module
-exports.push([module.i, "#map {\r\n    /*position:absolute;*/\r\n    bottom:0;\r\n    width:100%;\r\n    height: 800px;\r\n  }\r\n\r\n#mainForm{\r\n  padding: 50px;\r\n  background: #efefef;\r\n  height: 800px;\r\n}", ""]);
+exports.push([module.i, "#map {\n    /*position:absolute;*/\n    bottom:0;\n    width:100%;\n    height: 800px;\n  }\n\n#mainForm{\n  padding: 50px;\n  background: #efefef;\n  height: 800px;\n}", ""]);
 
 // exports
 
@@ -213,7 +213,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/app.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"container-fluid\">\n  <div class=\"row\">\n    <div class=\"col-4\" id=\"mainForm\">\n        <form>\n          <div class=\"row\">\n              <div class=\"col-sm-6 form-group\">\n                  <label for=\"token\">Token</label>\n                  <input type=\"text\" [(ngModel)]=\"token\" id=\"token\" name=\"token\" class=\"form-control\" placeholder=\"Ingrese token\"/>\n                  <a href=\"http://geocoder.geodir.co/geocoder/\" target=\"_blank\" >Obtener token</a>\n              </div>\n              <div class=\"col-sm-6 form-group\">\n                  <label for=\"busqueda\">Distrito</label>\n                  <ng2-completer [(ngModel)]=\"queryDistrito\" [datasource]=\"dataService\" (selected)=\"onItemSelect($event)\" (keyup)=\"onSearchDistrito($event)\"  [textSearching]=\"'Buscando...'\"\n                  [placeholder]=\"'Ingrese el nombre de un distrito'\" [textNoResults]=\"'Sin resultados'\" [clearUnselected]=true [pause]=\"250\"\n                  name=\"busqueda\" [inputClass]=\"['form-control']\" [minSearchLength]=\"2\"></ng2-completer>\n              </div>\n              \n          </div>\n          <div class=\"row\">\n              <div class=\"col-sm-8 form-group\">\n                  <label for=\"direccion\">Direccion</label>\n                  <input type=\"text\" [(ngModel)]=\"address\" id=\"direccion\" name=\"direccion\" class=\"form-control\" placeholder=\"Ingrese direccion\"/>\n              </div>\n              <div class=\"col-sm-4 \">\n                  <br/>\n                  <button class=\"btn btn-primary\" (click)=\"searchAddress()\">Buscar</button>\n              </div>\n          </div>\n        </form>\n    </div>\n    <div class=\"col-8\" id=\"map\">\n      mapa\n    </div>\n  </div>\n\n</div>\n\n"
+module.exports = "<div class=\"container-fluid\">\n  <div class=\"row\">\n    <div class=\"col-4\" id=\"mainForm\">\n        <form>\n          <div class=\"row\">\n              <div class=\"col-sm-6 form-group\">\n                  <label for=\"token\">Token</label>\n                  <input type=\"text\" [(ngModel)]=\"token\" id=\"token\" name=\"token\" class=\"form-control\" placeholder=\"Ingrese token\"/>\n                  <a href=\"http://geocoderbatch.geodir.co/geocoder/\" target=\"_blank\" >Obtener token</a>\n              </div>\n              <div class=\"col-sm-6 form-group\">\n                  <label for=\"busqueda\">Distrito</label>\n                  <ng2-completer [(ngModel)]=\"queryDistrito\" [datasource]=\"dataService\" (selected)=\"onItemSelect($event)\" (keyup)=\"onSearchDistrito($event)\"  [textSearching]=\"'Buscando...'\"\n                  [placeholder]=\"'Ingrese el nombre de un distrito'\" [textNoResults]=\"'Sin resultados'\" [clearUnselected]=true [pause]=\"250\"\n                  name=\"busqueda\" [inputClass]=\"['form-control']\" [minSearchLength]=\"2\"></ng2-completer>\n              </div>\n              \n          </div>\n          <div class=\"row\">\n              <div class=\"col-sm-8 form-group\">\n                  <label for=\"direccion\">Direccion</label>\n                  <input type=\"text\" [(ngModel)]=\"address\" id=\"direccion\" name=\"direccion\" class=\"form-control\" placeholder=\"Ingrese direccion\"/>\n              </div>\n              <div class=\"col-sm-4 \">\n                  <br/>\n                  <button class=\"btn btn-primary\" (click)=\"searchAddress()\">Buscar</button>\n              </div>\n          </div>\n        </form>\n    </div>\n    <div class=\"col-8\" id=\"map\">\n      mapa\n    </div>\n  </div>\n\n</div>\n\n"
 
 /***/ }),
 
@@ -250,6 +250,7 @@ var AppComponent = /** @class */ (function () {
         this.completerService = completerService;
         this.mapService = mapService;
         this.geocoderServide = geocoderServide;
+        this.token = 'e3ad2cd9-aad2-4c98-9853-9621de6665f9';
     }
     AppComponent.prototype.ngOnInit = function () { this.initMapa(); };
     AppComponent.prototype.initMapa = function () {
