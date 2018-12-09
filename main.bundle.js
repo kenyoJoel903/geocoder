@@ -184,7 +184,7 @@ var MapService = /** @class */ (function () {
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return URLS; });
 var URLS = {
-    base: "http://api.geodir.co/geocoder",
+    base: "https://api.geodir.co/geocoder",
     distritos: '/asistido/v1/source/distrito',
     simple_Addres: '/geocoding/v1/geodir.address/simple'
 };
